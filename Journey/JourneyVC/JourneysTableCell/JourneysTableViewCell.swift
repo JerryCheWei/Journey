@@ -19,9 +19,9 @@ class JourneysTableViewCell: UITableViewCell {
         lineCircleView.layer.borderWidth = 0.5
         lineCircleView.layer.borderColor = UIColor(red: 171/255, green: 179/255, blue: 176/255, alpha: 1).cgColor
 
-        journeyImageView.layer.shadowRadius = 10
+        journeyImageView.layer.shadowRadius = 3
         journeyImageView.layer.shadowColor = UIColor(red: 171/255, green: 179/255, blue: 176/255, alpha: 1).cgColor
-        journeyImageView.layer.shadowOpacity = 0.3
+        journeyImageView.layer.shadowOpacity = 0.5
         journeyImageView.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
 

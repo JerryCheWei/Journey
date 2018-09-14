@@ -16,6 +16,8 @@
 		BF29286A214B66D2008F4921 /* JourneysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292868214B66D2008F4921 /* JourneysTableViewCell.swift */; };
 		BF29286B214B66D2008F4921 /* JourneysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF292869214B66D2008F4921 /* JourneysTableViewCell.xib */; };
 		BF29286E214B7263008F4921 /* AddNewJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29286D214B7263008F4921 /* AddNewJourneyViewController.swift */; };
+		BF29287A214BA0F9008F4921 /* CellData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292878214BA0F9008F4921 /* CellData+CoreDataClass.swift */; };
+		BF29287B214BA0F9008F4921 /* CellData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292879214BA0F9008F4921 /* CellData+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		BF292868214B66D2008F4921 /* JourneysTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneysTableViewCell.swift; sourceTree = "<group>"; };
 		BF292869214B66D2008F4921 /* JourneysTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JourneysTableViewCell.xib; sourceTree = "<group>"; };
 		BF29286D214B7263008F4921 /* AddNewJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewJourneyViewController.swift; sourceTree = "<group>"; };
+		BF292878214BA0F9008F4921 /* CellData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BF292879214BA0F9008F4921 /* CellData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CellData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,8 @@
 		BF292842214B59E1008F4921 = {
 			isa = PBXGroup;
 			children = (
+				BF292878214BA0F9008F4921 /* CellData+CoreDataClass.swift */,
+				BF292879214BA0F9008F4921 /* CellData+CoreDataProperties.swift */,
 				BF29284D214B59E2008F4921 /* Journey */,
 				BF29284C214B59E2008F4921 /* Products */,
 			);
@@ -191,10 +197,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF29286A214B66D2008F4921 /* JourneysTableViewCell.swift in Sources */,
+				BF29287A214BA0F9008F4921 /* CellData+CoreDataClass.swift in Sources */,
 				BF29286E214B7263008F4921 /* AddNewJourneyViewController.swift in Sources */,
 				BF292857214B59E2008F4921 /* Journey.xcdatamodeld in Sources */,
 				BF29284F214B59E2008F4921 /* AppDelegate.swift in Sources */,
 				BF292866214B60D4008F4921 /* JourneyViewController.swift in Sources */,
+				BF29287B214BA0F9008F4921 /* CellData+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
