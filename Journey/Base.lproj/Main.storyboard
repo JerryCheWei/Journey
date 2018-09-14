@@ -21,16 +21,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0JZ-6P-uvF">
                                 <rect key="frame" x="0.0" y="80" width="414" height="656"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="99" id="QVk-Zu-eUx">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="99"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QVk-Zu-eUx" id="ft8-q4-dEK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                <inset key="scrollIndicatorInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="p4r-1g-AMP" id="4ee-wm-KfT"/>
+                                    <outlet property="delegate" destination="p4r-1g-AMP" id="LNw-mZ-sHK"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwI-iP-bPd">
                                 <rect key="frame" x="0.0" y="20" width="414" height="60"/>
@@ -74,6 +69,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NET-C1-TiP"/>
                     </view>
+                    <connections>
+                        <outlet property="jonerysTableView" destination="0JZ-6P-uvF" id="Hx3-QG-Mu8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcO-ev-0dv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
