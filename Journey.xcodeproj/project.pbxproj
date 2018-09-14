@@ -15,6 +15,7 @@
 		BF292866214B60D4008F4921 /* JourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292865214B60D4008F4921 /* JourneyViewController.swift */; };
 		BF29286A214B66D2008F4921 /* JourneysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292868214B66D2008F4921 /* JourneysTableViewCell.swift */; };
 		BF29286B214B66D2008F4921 /* JourneysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF292869214B66D2008F4921 /* JourneysTableViewCell.xib */; };
+		BF29286E214B7263008F4921 /* AddNewJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29286D214B7263008F4921 /* AddNewJourneyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BF292865214B60D4008F4921 /* JourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyViewController.swift; sourceTree = "<group>"; };
 		BF292868214B66D2008F4921 /* JourneysTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneysTableViewCell.swift; sourceTree = "<group>"; };
 		BF292869214B66D2008F4921 /* JourneysTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JourneysTableViewCell.xib; sourceTree = "<group>"; };
+		BF29286D214B7263008F4921 /* AddNewJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewJourneyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				BF29284E214B59E2008F4921 /* AppDelegate.swift */,
-				BF292864214B6098008F4921 /* JourneyVC */,
 				BF292852214B59E2008F4921 /* Main.storyboard */,
+				BF292864214B6098008F4921 /* JourneyVC */,
+				BF29286C214B71EF008F4921 /* AddNewJourney */,
 				BF292858214B59E8008F4921 /* Assets.xcassets */,
 				BF29285A214B59E8008F4921 /* LaunchScreen.storyboard */,
 				BF29285D214B59E8008F4921 /* Info.plist */,
@@ -87,6 +90,14 @@
 				BF292869214B66D2008F4921 /* JourneysTableViewCell.xib */,
 			);
 			path = JourneysTableCell;
+			sourceTree = "<group>";
+		};
+		BF29286C214B71EF008F4921 /* AddNewJourney */ = {
+			isa = PBXGroup;
+			children = (
+				BF29286D214B7263008F4921 /* AddNewJourneyViewController.swift */,
+			);
+			path = AddNewJourney;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF29286A214B66D2008F4921 /* JourneysTableViewCell.swift in Sources */,
+				BF29286E214B7263008F4921 /* AddNewJourneyViewController.swift in Sources */,
 				BF292857214B59E2008F4921 /* Journey.xcdatamodeld in Sources */,
 				BF29284F214B59E2008F4921 /* AppDelegate.swift in Sources */,
 				BF292866214B60D4008F4921 /* JourneyViewController.swift in Sources */,

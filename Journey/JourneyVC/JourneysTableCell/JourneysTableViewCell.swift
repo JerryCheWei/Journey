@@ -19,9 +19,10 @@ class JourneysTableViewCell: UITableViewCell {
         lineCircleView.layer.borderWidth = 0.5
         lineCircleView.layer.borderColor = UIColor(red: 171/255, green: 179/255, blue: 176/255, alpha: 1).cgColor
 
-        journeyImageView.layer.shadowRadius = 2
+        journeyImageView.layer.shadowRadius = 10
         journeyImageView.layer.shadowColor = UIColor(red: 171/255, green: 179/255, blue: 176/255, alpha: 1).cgColor
-        journeyImageView.layer.shadowOpacity = 0.4
+        journeyImageView.layer.shadowOpacity = 0.3
+        journeyImageView.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
