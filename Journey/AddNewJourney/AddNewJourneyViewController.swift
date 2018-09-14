@@ -19,12 +19,30 @@ class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     var imageData = Data()
+    var cellTitle: String = ""
+    var cellText: String = ""
+    var edited = false
+
+    func commedInit(edited: Bool, cellTitle: String, imageData: Data, cellText: String) {
+        self.edited = edited
+        self.cellTitle = cellTitle
+        self.imageData = imageData
+        self.cellText = cellText
+    }
+
     @IBAction func saveButtonAction(_ sender: Any) {
-        self.saveData()
-        dismiss(animated: true, completion: nil)
+        if edited == false {
+            self.saveData()
+            dismiss(animated: true, completion: nil)
+        }
+        else {
+            self.updateData()
+            navigationController?.popViewController(animated: true)
+        }
     }
     @IBAction func closeButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 
     func imageViewBackColorSet() {
@@ -37,22 +55,30 @@ class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDele
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if edited == true {
+            navigationController?.isNavigationBarHidden = true
+            self.addImageView.image = UIImage(data: imageData)
+            self.titleTextView.text = self.cellTitle
+            self.textTextView.text = self.cellText
+            self.imageViewIcon.isHidden = true
+            self.imageViewLabel.isHidden = true
+        }
+        else {
+            // reload
+            self.titleTextView.text = ""
+            self.textTextView.text = ""
+        }
+
         self.imageViewBackColorSet()
         self.saveButtonColorSet()
         // 點擊imageView
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imagePressed))
         addImageView.isUserInteractionEnabled = true
         addImageView.addGestureRecognizer(tapGesture)
-        // reload
-        self.titleTextView.text = ""
-        self.textTextView.text = ""
         // keyboard set
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
         view.addGestureRecognizer(tap)
     }
 
@@ -111,28 +137,30 @@ class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDele
         cellData.setValue(self.imageData, forKey: "image")
         appdelegate.saveContext()
     }
-//    func fetchData() {
-//        // core data
-//        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate
-//            else {
-//                return
-//        }
-//        let context = appdelegate.persistentContainer.viewContext
-//        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CellData")
-//        do {
-//            if let request = try context.fetch(fetch) as? [CellData] {
-//                for result in request {
-//                    if let title = result.title,
-//                        let text = result.text {
-//                        print("title : \(title), text : \(text)")
-//                    }
-//
-//                }
-//            }
-//        }
-//        catch {
-//            print("error")
-//        }
-//    }
+
+    func updateData() {
+        // core data
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate
+            else {
+                return
+        }
+        let context = appdelegate.persistentContainer.viewContext
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CellData")
+        do {
+            if let request = try context.fetch(fetch) as? [CellData] {
+                for result in request {
+                    if result.title == cellTitle {
+                        result.image = self.imageData as NSData
+                        result.text = self.textTextView.text
+                        result.title = self.titleTextView.text
+                    }
+                }
+            }
+        }
+        catch {
+            print("error")
+        }
+        appdelegate.saveContext()
+    }
 
 }

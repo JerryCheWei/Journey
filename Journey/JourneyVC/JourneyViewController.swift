@@ -71,4 +71,11 @@ class JourneyViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.titleLabel.text = fetchItem.title
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let fetchItem = fetchAll[indexPath.row]
+        if let showImageVC = storyboard?.instantiateViewController(withIdentifier: "AddNew") as? AddNewJourneyViewController {
+            showImageVC.commedInit(edited: true, cellTitle: fetchItem.title!, imageData: fetchItem.image! as Data, cellText: fetchItem.text!)
+            self.navigationController?.pushViewController(showImageVC, animated: true)
+        }
+    }
 }
