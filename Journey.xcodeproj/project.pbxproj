@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		BF29284F214B59E2008F4921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29284E214B59E2008F4921 /* AppDelegate.swift */; };
-		BF292851214B59E2008F4921 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292850214B59E2008F4921 /* ViewController.swift */; };
 		BF292854214B59E2008F4921 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF292852214B59E2008F4921 /* Main.storyboard */; };
 		BF292857214B59E2008F4921 /* Journey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF292855214B59E2008F4921 /* Journey.xcdatamodeld */; };
 		BF292859214B59E8008F4921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF292858214B59E8008F4921 /* Assets.xcassets */; };
 		BF29285C214B59E8008F4921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF29285A214B59E8008F4921 /* LaunchScreen.storyboard */; };
+		BF292866214B60D4008F4921 /* JourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292865214B60D4008F4921 /* JourneyViewController.swift */; };
+		BF29286A214B66D2008F4921 /* JourneysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF292868214B66D2008F4921 /* JourneysTableViewCell.swift */; };
+		BF29286B214B66D2008F4921 /* JourneysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF292869214B66D2008F4921 /* JourneysTableViewCell.xib */; };
+		BF29286E214B7263008F4921 /* AddNewJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29286D214B7263008F4921 /* AddNewJourneyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF29284B214B59E2008F4921 /* Journey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF29284E214B59E2008F4921 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF292850214B59E2008F4921 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF292853214B59E2008F4921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF292856214B59E2008F4921 /* Journey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Journey.xcdatamodel; sourceTree = "<group>"; };
 		BF292858214B59E8008F4921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF29285B214B59E8008F4921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF29285D214B59E8008F4921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF292865214B60D4008F4921 /* JourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyViewController.swift; sourceTree = "<group>"; };
+		BF292868214B66D2008F4921 /* JourneysTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneysTableViewCell.swift; sourceTree = "<group>"; };
+		BF292869214B66D2008F4921 /* JourneysTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JourneysTableViewCell.xib; sourceTree = "<group>"; };
+		BF29286D214B7263008F4921 /* AddNewJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewJourneyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +63,41 @@
 			isa = PBXGroup;
 			children = (
 				BF29284E214B59E2008F4921 /* AppDelegate.swift */,
-				BF292850214B59E2008F4921 /* ViewController.swift */,
 				BF292852214B59E2008F4921 /* Main.storyboard */,
+				BF292864214B6098008F4921 /* JourneyVC */,
+				BF29286C214B71EF008F4921 /* AddNewJourney */,
 				BF292858214B59E8008F4921 /* Assets.xcassets */,
 				BF29285A214B59E8008F4921 /* LaunchScreen.storyboard */,
 				BF29285D214B59E8008F4921 /* Info.plist */,
 				BF292855214B59E2008F4921 /* Journey.xcdatamodeld */,
 			);
 			path = Journey;
+			sourceTree = "<group>";
+		};
+		BF292864214B6098008F4921 /* JourneyVC */ = {
+			isa = PBXGroup;
+			children = (
+				BF292865214B60D4008F4921 /* JourneyViewController.swift */,
+				BF292867214B65F5008F4921 /* JourneysTableCell */,
+			);
+			path = JourneyVC;
+			sourceTree = "<group>";
+		};
+		BF292867214B65F5008F4921 /* JourneysTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF292868214B66D2008F4921 /* JourneysTableViewCell.swift */,
+				BF292869214B66D2008F4921 /* JourneysTableViewCell.xib */,
+			);
+			path = JourneysTableCell;
+			sourceTree = "<group>";
+		};
+		BF29286C214B71EF008F4921 /* AddNewJourney */ = {
+			isa = PBXGroup;
+			children = (
+				BF29286D214B7263008F4921 /* AddNewJourneyViewController.swift */,
+			);
+			path = AddNewJourney;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF29286B214B66D2008F4921 /* JourneysTableViewCell.xib in Resources */,
 				BF29285C214B59E8008F4921 /* LaunchScreen.storyboard in Resources */,
 				BF292859214B59E8008F4921 /* Assets.xcassets in Resources */,
 				BF292854214B59E2008F4921 /* Main.storyboard in Resources */,
@@ -156,9 +190,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF292851214B59E2008F4921 /* ViewController.swift in Sources */,
+				BF29286A214B66D2008F4921 /* JourneysTableViewCell.swift in Sources */,
+				BF29286E214B7263008F4921 /* AddNewJourneyViewController.swift in Sources */,
 				BF292857214B59E2008F4921 /* Journey.xcdatamodeld in Sources */,
 				BF29284F214B59E2008F4921 /* AppDelegate.swift in Sources */,
+				BF292866214B60D4008F4921 /* JourneyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
