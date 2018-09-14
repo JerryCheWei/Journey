@@ -22,6 +22,9 @@ class JourneyViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableViewXibSet()
         jonerysTableView.rowHeight = 230
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchData()
     }
 
@@ -34,13 +37,17 @@ class JourneyViewController: UIViewController, UITableViewDelegate, UITableViewD
         let context = appdelegate.persistentContainer.viewContext
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CellData")
         do {
+            self.fetchAll.removeAll()
+            var fetchItem = [CellData]()
             if let request = try context.fetch(fetch) as? [CellData] {
                 for result in request {
                     if let title = result.title,
                         let text = result.text {
                         print("title : \(title), text : \(text)")
-                        self.fetchAll.append(result)
+                        fetchItem.append(result)
                     }
+                    self.fetchAll = fetchItem.reversed()
+                    jonerysTableView.reloadData()
                 }
             }
         }

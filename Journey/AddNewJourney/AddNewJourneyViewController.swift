@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var textTextView: UITextView!
     @IBOutlet weak var titleTextView: UITextView!
@@ -21,7 +21,7 @@ class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDele
     var imageData = Data()
     @IBAction func saveButtonAction(_ sender: Any) {
         self.saveData()
-        
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func closeButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -46,7 +46,34 @@ class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDele
         // reload
         self.titleTextView.text = ""
         self.textTextView.text = ""
-//        self.fetchData()
+        // keyboard set
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func keyboardWillShow(notify: NSNotification) {
+
+        if let keyboardSize = (notify.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    @objc func keyboardWillHide(notify: NSNotification) {
+
+        if let keyboardSize = (notify.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     @objc func imagePressed() {
