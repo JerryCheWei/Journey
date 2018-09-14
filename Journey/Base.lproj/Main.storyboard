@@ -122,7 +122,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9I-ln-5bR">
                                 <rect key="frame" x="0.0" y="20" width="414" height="414"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s73-PO-gfj">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s73-PO-gfj">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_photo" translatesAutoresizingMaskIntoConstraints="NO" id="4u0-Bf-24t">
@@ -211,6 +211,8 @@ Luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed
                     <connections>
                         <outlet property="addImageView" destination="s73-PO-gfj" id="1hM-5y-oil"/>
                         <outlet property="closeButton" destination="9De-2H-xe7" id="kqC-e2-pHV"/>
+                        <outlet property="imageViewIcon" destination="4u0-Bf-24t" id="mvb-KP-YIO"/>
+                        <outlet property="imageViewLabel" destination="aGL-Ql-r4P" id="DN0-0c-Mh3"/>
                         <outlet property="saveButton" destination="uju-j7-aVr" id="03M-xZ-uJU"/>
                     </connections>
                 </viewController>

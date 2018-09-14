@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AddNewJourneyViewController: UIViewController {
+class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var imageViewLabel: UILabel!
+    @IBOutlet weak var imageViewIcon: UIImageView!
     @IBOutlet weak var addImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -39,5 +41,22 @@ class AddNewJourneyViewController: UIViewController {
 
     @objc func imagePressed() {
         print("Open photo library")
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        var selectedImageFromPicker: UIImage?
+        // 取得從 UIImagePickerController 選擇到的檔案
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            selectedImageFromPicker = pickedImage
+        }
+        // 關閉圖庫
+        dismiss(animated: true, completion: nil)
+        self.addImageView.image = selectedImageFromPicker
+        self.imageViewIcon.isHidden = true
+        self.imageViewLabel.isHidden = true
     }
 }
