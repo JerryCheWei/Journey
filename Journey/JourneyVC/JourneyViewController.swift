@@ -78,4 +78,41 @@ class JourneyViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.navigationController?.pushViewController(showImageVC, animated: true)
         }
     }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "刪除") { (_ action, _ view, completionHandler) in
+            print("delete")
+            let fetchItem =  self.fetchAll[indexPath.row]
+            self.deleteData(cellTitle: fetchItem.title!)
+            completionHandler(true)
+        }
+        deleteAction.backgroundColor = .red
+        let comfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+        comfiguration.performsFirstActionWithFullSwipe = true
+        return comfiguration
+    }
+
+    func deleteData(cellTitle: String) {
+        // core data
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate
+            else {
+                return
+        }
+        let context = appdelegate.persistentContainer.viewContext
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CellData")
+        do {
+            if let request = try context.fetch(fetch) as? [CellData] {
+                for result in request {
+                    if result.title == cellTitle {
+                        context.delete(result)
+                    }
+                }
+            }
+        }
+        catch {
+            print("error")
+        }
+        appdelegate.saveContext()
+        fetchData()
+        jonerysTableView.reloadData()
+    }
 }
