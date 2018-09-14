@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var textTextView: UITextView!
+    @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var imageViewLabel: UILabel!
     @IBOutlet weak var imageViewIcon: UIImageView!
     @IBOutlet weak var addImageView: UIImageView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    var imageData = Data()
     @IBAction func saveButtonAction(_ sender: Any) {
+        self.saveData()
+        
     }
     @IBAction func closeButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -37,6 +43,10 @@ class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDele
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imagePressed))
         addImageView.isUserInteractionEnabled = true
         addImageView.addGestureRecognizer(tapGesture)
+        // reload
+        self.titleTextView.text = ""
+        self.textTextView.text = ""
+//        self.fetchData()
     }
 
     @objc func imagePressed() {
@@ -52,6 +62,7 @@ class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDele
         // 取得從 UIImagePickerController 選擇到的檔案
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             selectedImageFromPicker = pickedImage
+            self.imageData = UIImageJPEGRepresentation(pickedImage, 1)!
         }
         // 關閉圖庫
         dismiss(animated: true, completion: nil)
@@ -59,4 +70,42 @@ class AddNewJourneyViewController: UIViewController, UIImagePickerControllerDele
         self.imageViewIcon.isHidden = true
         self.imageViewLabel.isHidden = true
     }
+
+    func saveData() {
+        // core data
+        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate
+        else {
+            return
+        }
+        let context = appdelegate.persistentContainer.viewContext
+        let cellData = NSEntityDescription.insertNewObject(forEntityName: "CellData", into: context)
+        cellData.setValue(self.titleTextView.text, forKey: "title")
+        cellData.setValue(self.textTextView.text, forKey: "text")
+        cellData.setValue(self.imageData, forKey: "image")
+        appdelegate.saveContext()
+    }
+//    func fetchData() {
+//        // core data
+//        guard let appdelegate = UIApplication.shared.delegate as? AppDelegate
+//            else {
+//                return
+//        }
+//        let context = appdelegate.persistentContainer.viewContext
+//        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CellData")
+//        do {
+//            if let request = try context.fetch(fetch) as? [CellData] {
+//                for result in request {
+//                    if let title = result.title,
+//                        let text = result.text {
+//                        print("title : \(title), text : \(text)")
+//                    }
+//
+//                }
+//            }
+//        }
+//        catch {
+//            print("error")
+//        }
+//    }
+
 }

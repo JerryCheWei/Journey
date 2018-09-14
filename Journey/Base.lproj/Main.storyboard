@@ -214,6 +214,8 @@ Luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed
                         <outlet property="imageViewIcon" destination="4u0-Bf-24t" id="mvb-KP-YIO"/>
                         <outlet property="imageViewLabel" destination="aGL-Ql-r4P" id="DN0-0c-Mh3"/>
                         <outlet property="saveButton" destination="uju-j7-aVr" id="03M-xZ-uJU"/>
+                        <outlet property="textTextView" destination="9IF-GB-80f" id="Ox0-c4-XmS"/>
+                        <outlet property="titleTextView" destination="EGJ-KR-MKy" id="koX-wg-NK1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4e-aY-vnB" userLabel="First Responder" sceneMemberID="firstResponder"/>
