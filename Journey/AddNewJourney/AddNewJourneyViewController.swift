@@ -31,6 +31,13 @@ class AddNewJourneyViewController: UIViewController {
         super.viewDidLoad()
         self.imageViewBackColorSet()
         self.saveButtonColorSet()
+        // 點擊imageView
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imagePressed))
+        addImageView.isUserInteractionEnabled = true
+        addImageView.addGestureRecognizer(tapGesture)
     }
 
+    @objc func imagePressed() {
+        print("Open photo library")
+    }
 }
